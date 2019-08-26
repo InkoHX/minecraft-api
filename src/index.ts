@@ -2,16 +2,14 @@ import fetch from "node-fetch";
 
 export type MojangServiceStatus = "green" | "yellow" | "red"
 
-export interface MojangServiceStatusResponse {
-  "minecraft.net": MojangServiceStatus
-  "session.minecraft.net": MojangServiceStatus
-  "account.mojang.com": MojangServiceStatus
-  "authserver.mojang.com": MojangServiceStatus
-  "sessionserver.mojang.com": MojangServiceStatus
-  "api.mojang.com": MojangServiceStatus
-  "textures.minecraft.net": MojangServiceStatus
-  "mojang.com": MojangServiceStatus
-}
+export type MojangService = "minecraft.net"
+  | "session.minecraft.net"
+  | "account.mojang.com"
+  | "authserver.mojang.com"
+  | "sessionserver.mojang.com"
+  | "api.mojang.com"
+  | "textures.minecraft.net"
+  | "mojang.com"
 
 export interface UserProfileResponse {
   id: string
@@ -106,8 +104,8 @@ export default class MinecraftAPI {
   /**
    * Returns status of various Mojang services.
    */
-  public static async getServiceStatus(): Promise<MojangServiceStatusResponse> {
-    const data: MojangServiceStatusResponse | null = await fetch('https://status.mojang.com/check')
+  public static async getServiceStatus(): Promise<{[key in MojangService]: MojangServiceStatus}[]> {
+    const data: {[key in MojangService]: MojangServiceStatus}[] | null = await fetch('https://status.mojang.com/check')
       .then((res) => res.json())
       .catch(() => null)
 
