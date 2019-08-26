@@ -1,0 +1,30 @@
+{
+  "name": "minecraft-api",
+  "version": "0.1.0",
+  "description": "Minecraft API",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InkoHX/minecraft-api.git"
+  },
+  "keywords": [
+    "minecraft"
+  ],
+  "author": "InkoHX (inkohx@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InkoHX/minecraft-api/issues"
+  },
+  "homepage": "https://github.com/InkoHX/minecraft-api#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.2",
+    "@types/node-fetch": "^2.5.0",
+    "typescript": "^3.5.3"
+  }
+}
