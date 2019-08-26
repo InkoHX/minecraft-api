@@ -4,7 +4,10 @@
   "description": "Minecraft API",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "tsc -p .",
+    "compile:test": "tsc -p . --noEmit",
+    "test": "mocha && yarn run compile:test",
+    "prepublishOnly": "tsc -p ."
   },
   "repository": {
     "type": "git",
@@ -19,12 +22,18 @@
     "url": "https://github.com/InkoHX/minecraft-api/issues"
   },
   "homepage": "https://github.com/InkoHX/minecraft-api#readme",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
+    "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.2",
     "@types/node-fetch": "^2.5.0",
+    "mocha": "^6.2.0",
+    "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
   }
 }
