@@ -1,16 +1,16 @@
 import fetch from "node-fetch";
 
-export type MojangServiceStatusType = "green" | "yellow" | "red"
+export type MojangServiceStatus = "green" | "yellow" | "red"
 
 export interface MojangServiceStatusResponse {
-  "minecraft.net": MojangServiceStatusType
-  "session.minecraft.net": MojangServiceStatusType
-  "account.mojang.com": MojangServiceStatusType
-  "authserver.mojang.com": MojangServiceStatusType
-  "sessionserver.mojang.com": MojangServiceStatusType
-  "api.mojang.com": MojangServiceStatusType
-  "textures.minecraft.net": MojangServiceStatusType
-  "mojang.com": MojangServiceStatusType
+  "minecraft.net": MojangServiceStatus
+  "session.minecraft.net": MojangServiceStatus
+  "account.mojang.com": MojangServiceStatus
+  "authserver.mojang.com": MojangServiceStatus
+  "sessionserver.mojang.com": MojangServiceStatus
+  "api.mojang.com": MojangServiceStatus
+  "textures.minecraft.net": MojangServiceStatus
+  "mojang.com": MojangServiceStatus
 }
 
 export interface UserProfileResponse {
