@@ -6,8 +6,7 @@
   "scripts": {
     "compile": "tsc -p .",
     "compile:test": "tsc -p . --noEmit",
-    "test": "mocha && yarn run compile:test",
-    "prepublishOnly": "tsc -p ."
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
