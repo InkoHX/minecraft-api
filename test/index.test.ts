@@ -17,7 +17,7 @@ describe('MinecraftAPI tests', () => {
 
     it('Method: fetchNamehistory', () => {
       return minecraft.fetchNamehistory().then((res) => {
-        res.forEach((value) => {
+        res.map((value) => {
           assert.strictEqual(typeof value.name, 'string')
           if (value.changedToAt) assert.strictEqual(typeof value.changedToAt, 'number')
         })
@@ -28,7 +28,7 @@ describe('MinecraftAPI tests', () => {
       return minecraft.fetchSkinData().then((res) => {
         assert.strictEqual(typeof res.id, 'string')
         assert.strictEqual(typeof res.name, 'string')
-        res.properties.forEach((value) => {
+        res.properties.map((value) => {
           assert.strictEqual(typeof value.name, 'string')
           assert.strictEqual(typeof value.value, 'string')
         })
