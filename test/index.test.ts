@@ -1,4 +1,4 @@
-import mocha from 'mocha'
+import mocha, { it } from 'mocha'
 import assert from 'assert'
 import MinecraftAPI, { NameHistoryResponse, SkinDataResponse } from '../src'
 
@@ -12,38 +12,35 @@ describe('MinecraftAPI tests', () => {
     let history: NameHistoryResponse[]
     let skinData: SkinDataResponse
 
-    it('Method: fetchProfile', () => {
-      return minecraft.fetchProfile().then((res) => {
-        assert.strictEqual(typeof res.name, 'string')
-        currentName = res.name
-        assert.strictEqual(typeof res.id, 'string')
-        uuid = res.id
-        if (res.demo) assert.strictEqual(typeof res.demo, 'boolean')
-        if (res.legacy) assert.strictEqual(typeof res.legacy, 'boolean')
-      })
+    it('Method: fetchProfile', async () => {
+      const res = await minecraft.fetchProfile()
+      assert.strictEqual(typeof res.name, 'string')
+      currentName = res.name
+      assert.strictEqual(typeof res.id, 'string')
+      uuid = res.id
+      if (res.demo) assert.strictEqual(typeof res.demo, 'boolean')
+      if (res.legacy) assert.strictEqual(typeof res.legacy, 'boolean')
     })
 
-    it('Method: fetchNamehistory', () => {
-      return minecraft.fetchNamehistory().then((res) => {
-        res.map((value) => {
-          assert.strictEqual(typeof value.name, 'string')
-          if (value.changedToAt) assert.strictEqual(typeof value.changedToAt, 'number')
-        })
-        history = res
+    it('Method: fetchNamehistory', async () => {
+      const res = await minecraft.fetchNamehistory()
+      res.map((value) => {
+        assert.strictEqual(typeof value.name, 'string')
+        if (value.changedToAt) assert.strictEqual(typeof value.changedToAt, 'number')
       })
+      history = res
     })
 
-    it('Method: fetchSkinData', () => {
-      return minecraft.fetchSkinData().then((res) => {
-        assert.strictEqual(typeof res.id, 'string')
-        assert.strictEqual(typeof res.name, 'string')
-        res.properties.map((value) => {
-          assert.strictEqual(typeof value.name, 'string')
-          assert.strictEqual(typeof value.value, 'string')
-          if (value.signature) assert.strictEqual(typeof value.signature, 'string')
-        })
-        skinData = res
+    it('Method: fetchSkinData', async () => {
+      const res = await minecraft.fetchSkinData()
+      assert.strictEqual(typeof res.id, 'string')
+      assert.strictEqual(typeof res.name, 'string')
+      res.properties.map((value) => {
+        assert.strictEqual(typeof value.name, 'string')
+        assert.strictEqual(typeof value.value, 'string')
+        if (value.signature) assert.strictEqual(typeof value.signature, 'string')
       })
+      skinData = res
     })
 
     it('Property: uuid', () => {
@@ -72,10 +69,9 @@ describe('MinecraftAPI tests', () => {
       // TODO
     })
 
-    it('Method: getBlockedServers', () => {
-      return MinecraftAPI.getBlockedServers().then((value) => {
-        assert.strictEqual(typeof value, 'string')
-      })
+    it('Method: getBlockedServers', async () => {
+      const value = await MinecraftAPI.getBlockedServers()
+      assert.strictEqual(typeof value, 'string')
     })
   })
 })
