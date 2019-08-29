@@ -106,12 +106,12 @@ export default class MinecraftAPI {
    * Returns status of various Mojang services.
    */
   public static async getServiceStatus (): Promise<{ [key in MojangService]: MojangServiceStatus }[]> {
-    const data: { [key in MojangService]: MojangServiceStatus }[] | null = await fetch('https://status.mojang.com/check')
-      .then((res) => res.json())
-      .catch(() => null)
+    const data = await fetch('https://status.mojang.com/check').catch(() => null)
+    if (!data) throw new MinecraftAPIError('Fetch error.')
+    if (data.status !== 200) throw new MinecraftAPIError(`Status Code: ${data.status} | ${data.statusText}`)
+    const result: { [key in MojangService]: MojangServiceStatus }[] = await data.json()
 
-    if (data) return data
-    else throw new Error('Fetch error')
+    return result
   }
 
   /**
@@ -119,7 +119,9 @@ export default class MinecraftAPI {
    */
   public static async getBlockedServers (): Promise<string> {
     const data = await fetch('https://sessionserver.mojang.com/blockedservers').catch(() => null)
-    if (data) return data.text()
-    else throw new MinecraftAPIError('Fetch error.')
+    if (!data) throw new MinecraftAPIError('Fetch error.')
+    if (data.status !== 200) throw new MinecraftAPIError(`Status Code: ${data.status} | ${data.statusText}`)
+
+    return data.text()
   }
 }
