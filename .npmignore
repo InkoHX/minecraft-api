@@ -1,0 +1,17 @@
+# Test
+test/
+
+# Visual Studio Code settings
+.vscode/
+
+# GitHub config
+.github/
+
+# Dependency directories
+node_modules
+
+
+.eslintrc.json
+.mocharc.json
+tsconfig.eslint.json
+tsconfig.json
