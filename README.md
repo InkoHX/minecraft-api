@@ -18,8 +18,6 @@ yarn add minecraft-api-node
 
 ### fetch
 
-Note that there is a 60 second rate limit.
-
 ```js
 const MinecraftAPI = require('minecraft-api-node')
 const player = new MinecraftAPI('your name')
@@ -52,8 +50,6 @@ player.fetchNamehistory((history) => {
 ```
 
 ### fetchSkinData
-
-Note that there is a 60 second rate limit.
 
 ```js
 const MinecraftAPI = require('minecraft-api-node')
