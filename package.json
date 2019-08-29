@@ -1,6 +1,6 @@
 {
   "name": "minecraft-api-node",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Minecraft(Mojang) API library",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "compile:test": "tsc -p . --noEmit",
     "lint": "eslint --ext .ts --ignore-path .gitignore .",
     "lint:fix": "eslint --ext .ts --ignore-path .gitignore . --fix",
-    "test": "mocha"
+    "test": "mocha",
+    "prepublishOnly": "yarn run compile"
   },
   "repository": {
     "type": "git",
