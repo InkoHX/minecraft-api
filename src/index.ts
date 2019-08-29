@@ -97,7 +97,7 @@ export default class MinecraftAPI {
 
   public async fetch (): Promise<void> {
     await this.fetchProfile()
-    await this.fetchProfile()
+    await this.fetchNamehistory()
     await this.fetchSkinData()
   }
 
