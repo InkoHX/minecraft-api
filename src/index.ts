@@ -63,7 +63,7 @@ export default class MinecraftAPI {
 
     this.uuid = profile.id
     this.currentName = this.name
-    this.demo = this.demo || false
+    this.demo = profile.demo || false
     this.legacy = profile.legacy || false
 
     return profile
