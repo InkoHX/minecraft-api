@@ -12,5 +12,6 @@
   ],
   "files.associations": {
     "*.ts": "typescript"
-  }
+  },
+  "files.eol": "\n"
 }

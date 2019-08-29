@@ -104,8 +104,8 @@ export default class MinecraftAPI {
   /**
    * Returns status of various Mojang services.
    */
-  public static async getServiceStatus (): Promise<{[key in MojangService]: MojangServiceStatus}[]> {
-    const data: {[key in MojangService]: MojangServiceStatus}[] | null = await fetch('https://status.mojang.com/check')
+  public static async getServiceStatus (): Promise<{ [key in MojangService]: MojangServiceStatus }[]> {
+    const data: { [key in MojangService]: MojangServiceStatus }[] | null = await fetch('https://status.mojang.com/check')
       .then((res) => res.json())
       .catch(() => null)
 
