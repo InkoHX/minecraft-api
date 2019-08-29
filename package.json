@@ -1,6 +1,6 @@
 {
   "name": "minecraft-api-node",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Minecraft(Mojang) API library",
   "main": "dist/index.js",
   "scripts": {
