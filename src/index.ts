@@ -86,6 +86,7 @@ export default class MinecraftAPI {
     if (!this.uuid) throw new MinecraftAPIError()
     const data = await fetch(`https://sessionserver.mojang.com/session/minecraft/profile/${encodeURIComponent(this.uuid)}?unsigned=${unsigned}`).catch(() => null)
     if (!data) throw new MinecraftAPIError('Fetch error.')
+    if (data.status === 429) throw new MinecraftAPIError('TooManyRequestsException: The client has sent too many requests within a certain amount of time')
     if (data.status !== 200) throw new MinecraftAPIError(`Status Code: ${data.status} | ${data.statusText}`)
 
     const profile: SkinDataResponse = await data.json()
