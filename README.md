@@ -67,7 +67,7 @@ player.fetchSkinData((skindata) => {
 ```js
 const MinecraftAPI = require('minecraft-api-node')
 
-MinecraftAPI.getServiceStatus.then((status) => {
+MinecraftAPI.fetchServiceStatus.then((status) => {
   console.log(status)
 })
 ```
@@ -77,7 +77,7 @@ MinecraftAPI.getServiceStatus.then((status) => {
 ```js
 const MinecraftAPI = require('minecraft-api-node')
 
-MinecraftAPI.getBlockedServers.then((blackservers) => {
+MinecraftAPI.fetchBlockedServers.then((blackservers) => {
   console.log(blackservers)
 })
 ```
