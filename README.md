@@ -1,5 +1,7 @@
 # minecraft-api-node
 
+[![NPM](https://nodei.co/npm/minecraft-api-node.png)](https://nodei.co/npm/minecraft-api-node/)
+
 ## Install
 
 ### npm
