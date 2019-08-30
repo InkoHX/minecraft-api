@@ -65,12 +65,12 @@ describe('MinecraftAPI tests', () => {
   })
 
   describe('MinecraftAPI: static', () => {
-    it('Method: getServiceStatus', () => {
+    it('Method: fetchServiceStatus', () => {
       // TODO
     })
 
-    it('Method: getBlockedServers', async () => {
-      const value = await MinecraftAPI.getBlockedServers()
+    it('Method: fetchBlockedServers', async () => {
+      const value = await MinecraftAPI.fetchBlockedServers()
       assert.strictEqual(typeof value, 'string')
     })
   })
